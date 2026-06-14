@@ -1,17 +1,15 @@
 class Solution {
   List<int> twoSum(List<int> nums, int target) {
-    Map<int, int> seen = {};
-
+    Map<int, int> m = {};
     for (int i = 0; i < nums.length; i++) {
-      int needed = target - nums[i];
-
-      if (seen.containsKey(needed)) {
-        return [seen[needed]!, i];
+      int need = target - nums[i];
+      if (m.containsKey(need)) {
+        return [i, m[need]!];
+      } else {
+        m[nums[i]] = i;
       }
-
-      seen[nums[i]] = i;
     }
-
-    return [];
+    return [-1];
+    
   }
 }
