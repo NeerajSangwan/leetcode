@@ -1,14 +1,13 @@
 class Solution {
   bool containsDuplicate(List<int> nums) {
-    final seen = <int>{};
-
-    for (final num in nums) {
-      if (!seen.add(num)) return true;
+    Map<int,int> m = {};
+    for(int i=0;i<nums.length;i++){
+        if(m.containsKey(nums[i])){
+            return true;
+        }else{
+            m[nums[i]] = 1;
+        }
     }
-
     return false;
   }
 }
-    
-  
-
